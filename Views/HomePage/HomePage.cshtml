@@ -3,7 +3,6 @@
 }
 <style>
     import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
     body, html {
         font-family: 'Poppins', sans-serif;
         height: 100%;
@@ -11,15 +10,19 @@
         overflow-x: hidden;
     }
     :root {
-        --primary-dark: #1a3a5f;     /* Dark blue */
-        --primary-medium: #2c5f8e;   /* Medium blue */
-        --primary-light: #4b7dbb;    /* Light blue */
-        --accent: #e9b44c;           /* Gold accent */
-        --accent-hover: #d4973b;     /* Darker gold for hover states */
-        --text-light: #ffffff;       /* White text */
-        --text-dark: #333333;        /* Dark gray text */
+        --primary-dark: #1a3a5f; /* Dark blue */
+        --primary-medium: #2c5f8e; /* Medium blue */
+        --primary-light: #4b7dbb; /* Light blue */
+        --accent: #e9b44c; /* Gold accent */
+        --accent-hover: #d4973b; /* Darker gold for hover states */
+        --text-light: #ffffff; /* White text */
+        --text-dark: #333333; /* Dark gray text */
         --background-light: #f5f7fa; /* Light background */
         --overlay-dark: rgba(26, 58, 95, 0.8); /* Dark overlay */
+        --primary-dark: #1a3a5f;
+        --text-light: #ffffff;
+        --accent: #ffc107;
+        --accent-hover: #e0a800;
     }
     .parallax-hero {
         height: 90vh;
@@ -37,6 +40,7 @@
         left: 10%;
         color: var(--text-light);
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        margin-bottom:150px;
     }
     .hero-content h1 {
         font-size: 4rem;
@@ -54,7 +58,7 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        min-height: 100vh;
+        height:auto;
     }
     .content-section {
         position: relative;
@@ -69,9 +73,9 @@
     .navbar {
         background-color: var(--primary-dark);
         padding: 15px 40px;
-        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         word-spacing: 2px;
-        font-size: 18px;
+        font-size: 24px;
         position: fixed;
         width: 100%;
         z-index: 1000;
@@ -85,146 +89,155 @@
     }
     .navbar-nav .nav-item .nav-link {
         color: var(--text-light);
-        font-weight: 500;
-        transition: color 0.3s ease-in-out;
         padding: 8px 12px;
-    }
-    .navbar-nav .nav-item .nav-link:hover {
-        color: var(--accent);
-    }
-    .quote-btn:hover {
-        background-color: var(--accent-hover);
-        color: var(--text-light);
     }
     /*ABOUT SECTION*/
     .about-section {
         background-color: var(--background-light);
         padding: 4rem 0;
         z-index: 1;
+        font-size:30px;
     }
 
         .about-section h1 {
             color: var(--primary-dark);
         }
-    /*SERVICE SECTION*/
-    .services-section {
-        background-image: url('@Url.Content("~/Content/Images/DarkenService.jpg")');
-        box-shadow: inset 0 0 0 2000px var(--overlay-dark);
-        color: var(--text-light);
-        text-align: center;
-        padding: 60px 20px;
-        z-index: 1;
-        min-height: auto !important;
-        height: auto !important;
-        overflow: hidden;
-    }
-    .services-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: stretch; /* Ensures equal height */
-        gap: 20px;
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-    .services-section h2 {
-        color: var(--text-light);
-        margin-bottom: 40px;
-    }
-    .service-item {
-        flex: 1 1 calc(33.333% - 20px);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        text-align: center;
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 30px 20px;
-        border-radius: 8px;
-        transition: transform 0.3s, background-color 0.3s;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        min-width: 250px;
-        max-width: 250px;
-        margin-bottom: 20px;
-    }
-        .service-item.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .service-item:hover {
-            transform: translateY(-10px);
-            background-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-item img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-            margin: 0 auto 15px;
-        }
-    .service-title {
-        font-size: 20px;
-        font-weight: bold;
-        margin: 15px 0;
-        color: var(--accent);
-    }
-    .service-description {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-    .service-description ul {
-        text-align: left;
-        padding-left: 20px;
-        margin: 0;
-     }
-    .service-description ul li {
-        color: var(--text-light);
-        margin-bottom: 8px;
-        position: relative;
-        list-style-type: none;
-        padding-left: 5px;
+/*SERVICES SECTION*/
+.services-slide {
+    height: 500px;
+    position: relative;
+    color: var(--text-light);
 }
-    .service-description ul li:before {
-    content: "•";
+
+.services-overlay {
     position: absolute;
-    left: -15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 58, 95, 0.8);
+    display: flex;
+    align-items: center;
+}
+
+.service-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    position: relative;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.service-title:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent);
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-list li {
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.service-list li::before {
+    content: '•';
+    color: var(--accent);
+    font-size: 24px;
+    position: absolute;
+    left: 0;
+    top: -2px;
+}
+
+.service-list h4 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
     color: var(--accent);
 }
-media (max-width: 1024px) {
-    .service-item {
-        flex: 1 1 calc(50% - 20px);
-        max-width: calc(50% - 20px);
-    }
+
+.service-list p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
 }
 
+.service-btn {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--primary-dark);
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.service-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    color: var(--primary-dark);
+}
+#servicesCarousel .carousel-indicators {
+    bottom: 20px;
+}
+#servicesCarousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#servicesCarousel .carousel-indicators button.active {
+    background-color: var(--accent);
+}
+
+media (max-width: 992px) {
+    .service-title {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .service-title:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
 
 media (max-width: 768px) {
-    .service-item {
-        flex: 1 1 100%;
-        max-width: 100%;
+    .services-slide {
+        height: auto;
+        min-height: 600px;
     }
 
-    .services-container {
-        flex-direction: column;
-        align-items: center;
+    .services-overlay {
+        padding: 60px 0;
     }
-}
-    media (min-width: 600px) {
-    .service-item {
-        width: calc(50% - 20px); /* Two items per row */
-    }
-}
 
-/* Larger Screens (≥ 1024px) - Three Items Per Row */
-    media (min-width: 1024px) {
-        .service-item {
-            width: calc(33.333% - 20px); /* Three items per row */
-        }
+    .service-title {
+        margin-bottom: 30px;
     }
+
+    .service-list li {
+        margin-bottom: 15px;
+    }
+
+    .service-list h4 {
+        font-size: 1.2rem;
+    }
+}
     /*PROJECT SECTION*/
     .projects-section {
         text-align: center;
@@ -240,11 +253,11 @@ media (max-width: 768px) {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        align-items: stretch; /* Ensures all cards have equal height */
+        align-items: stretch;
         gap: 20px;
     }
     .project-card {
-        flex: 1; /* Ensures all cards grow equally */
+        flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -253,18 +266,7 @@ media (max-width: 768px) {
         border-radius: 8px;
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        transition: transform 0.3s;
-        opacity: 0;
-        transform: translateY(20px);
         border: 1px solid #e0e0e0;
-    }
-    .project-card.active {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    .project-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
     }
     .project-card img {
         width: 100%;
@@ -272,7 +274,7 @@ media (max-width: 768px) {
         object-fit: cover;
     }
     .project-title {
-        flex-grow: 1; /* Helps equalize height */
+        flex-grow: 1;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -309,140 +311,129 @@ media (max-width: 768px) {
         0%, 20%, 50%, 80%, 100% {transform: translateY(0) translateX(-50%);}
         40% {transform: translateY(-30px) translateX(-50%);}
         60% {transform: translateY(-15px) translateX(-50%);}
-    }
-    /*LOCATION SECTION*/
-    .locations-section {
-        background-image: linear-gradient(rgba(26, 58, 95, 0.9), rgba(26, 58, 95, 0.9)), url('@Url.Content("~/Content/Images/DarkenService.jpg")');
-        background-size: cover;
-        background-position: center;
-        color: var(--text-light);
-        padding: 80px 0;
-        text-align: center;
-    }
-    .location-container{
-    }
-    .section-title {
-        font-size: 2.5rem;
-        margin-bottom: 50px;
-        font-weight: 500;
-        color: var(--text-light);
-    }
-    .locations-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-        max-width: 1100px;
-        margin: 0 auto 40px;
-    }
-    .location-card {
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 10px;
-        padding: 30px;
-        transition: transform 0.3s, background-color 0.3s;
-        backdrop-filter: blur(5px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .location-card:hover {
-        transform: translateY(-10px);
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-    .location-title {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-        font-weight: 600;
-        color: var(--text-light);
-    }
-    .location-divider {
-        height: 3px;
-        width: 50px;
-        background-color: var(--accent);
-        margin: 0 auto 15px;
-    }
-    .location-address {
-        font-size: 0.95rem;
-        line-height: 1.6;
-        margin-bottom: 20px;
-        color: var(--text-light);
-    }
-    .location-contact {
-        display: inline-block;
-        color: var(--accent);
-        text-decoration: none;
-        border: 1px solid var(--accent);
-        padding: 8px 15px;
-        border-radius: 5px;
-        transition: background-color 0.3s, color 0.3s;
-    }
-    .location-contact:hover {
-        background-color: var(--accent);
-        color: var(--primary-dark);
-    }
-    .map-container {
-        position: relative;
-        height: 200px;
-        background-image: url('@Url.Content("~/Content/Images/philippines-map.jpg")');
-        background-size: contain;
-        background-position: center;
-        background-repeat: no-repeat;
-        max-width: 800px;
-        margin: 60px auto 0;
-        border-radius: 10px;
-        overflow: hidden;
-        border: 2px solid var(--accent);
-    }
-    .map-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(26, 58, 95, 0.7);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: background-color 0.3s;
-    }
-    .map-overlay:hover {
-        background-color: rgba(26, 58, 95, 0.5);
-    }
-    .map-overlay p {
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-        color: var(--text-light);
-    }
-    .view-map-btn {
-        background-color: var(--accent);
-        color: var(--primary-dark);
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-weight: 600;
-        transition: background-color 0.3s;
-    }
-    .view-map-btn:hover {
-        background-color: var(--accent-hover);
-    }
-    media (max-width: 768px) {
-        .services-container, .projects-container, .location-container {
-            flex-direction: column;
-            align-items: center;
         }
-        .service-item, .project-card {
-            width: 90%;
-            margin-bottom: 20px;
-        }
-        .hero-content h1 {
-            font-size: 2.5rem;
-        }
-        .locations-grid {
-            grid-template-columns: 1fr;
-        }
-        .section-title {
-            font-size: 2rem;
-        }
+    /* LOCATION SECTION */
+.locations-section {
+    padding: 80px 0;
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('@Url.Content("~/Content/Images/DarkenService.jpg")');
+}
+
+.locations-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 58, 95, 0.75);
+    z-index: 0;
+}
+
+.locations-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.locations-section .section-title {
+    color: var(--text-light);
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.locations-section .section-description {
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.locations-section .carousel-item .card {
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.locations-section .carousel-item .card-img {
+    height: 400px;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+.locations-section .card-img-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.locations-section .card-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+}
+
+.locations-section .location-info {
+    background-color: rgba(26, 58, 95, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.locations-section .card-text {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.locations-section .card-text i {
+    color: var(--accent);
+    margin-right: 10px;
+}
+
+.locations-section .card-text:last-child {
+    margin-bottom: 0;
+}
+
+.locations-section .map-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.locations-section .map-btn {
+    background-color: var(--accent);
+    color: var(--primary-dark);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+media (max-width: 768px) {
+    .locations-section .card-title {
+        font-size: 2rem;
     }
+
+    .locations-section .card-text {
+        font-size: 1rem;
+    }
+
+    .locations-section .section-title {
+        font-size: 2rem;
+    }
+
+    .locations-section .section-description {
+        font-size: 1rem;
+    }
+}
     /*CLIENT SECTION*/
         .clients-section {
         background-color: var(--background-light);
@@ -478,9 +469,6 @@ media (max-width: 768px) {
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         transition: transform 0.3s;
     }
-    .client-category:hover {
-        transform: translateY(-5px);
-    }
     .category-title {
         font-size: 1.5rem;
         margin-bottom: 25px;
@@ -515,9 +503,6 @@ media (max-width: 768px) {
         border-radius: 8px;
         transition: background-color 0.3s;
     }
-    .client-item:hover {
-        background-color: rgba(75, 125, 187, 0.05);
-    }
     .client-logo {
         width: 80px;
         height: 80px;
@@ -544,85 +529,7 @@ media (max-width: 768px) {
         color: var(--text-dark);
         line-height: 1.4;
     }
-    .testimonials-container {
-        max-width: 800px;
-        margin: 0 auto;
-        background-color: var(--primary-dark);
-        border-radius: 10px;
-        padding: 40px 30px;
-        color: var(--text-light);
-        position: relative;
-    }
-    .testimonials-title {
-        font-size: 1.8rem;
-        margin-bottom: 30px;
-        color: var(--text-light);
-    }
-    .testimonial-carousel {
-        position: relative;
-        height: 200px;
-        overflow: hidden;
-    }
-    .testimonial-item {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        opacity: 0;
-        transition: opacity 0.4s ease-in-out;
-    }
-    .testimonial-item.active {
-        opacity: 1;
-    }
-    .testimonial-quote {
-        position: relative;
-        padding: 0 20px;
-    }
-    .quote-icon {
-        color: var(--accent);
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-    }
-    .testimonial-quote p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }
-    .testimonial-author {
-        font-style: italic;
-        text-align: right;
-    }
-    .carousel-controls {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        margin-top: 20px;
-    }
-    .carousel-control {
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        color: var(--accent);
-        transition: color 0.3s;
-    }
-    .carousel-control:hover {
-        color: var(--text-light);
-    }
-    .carousel-indicator {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background-color: rgba(255, 255, 255, 0.3);
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-    .carousel-indicator.active {
-        background-color: var(--accent);
-    }
-    /*CONTACT SECTION*/
+ /*CONTACT SECTION*/
 .contact-section {
     padding: 80px 0;
     position: relative;
@@ -632,112 +539,99 @@ media (max-width: 768px) {
     background-size: cover;
     background-image: url('@Url.Content("~/Content/Images/DarkenService.jpg")');
 }
-    .contact-section::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(26, 58, 95, 0.85);
-        z-index: 1;
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(26, 58, 95, 0.75);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    font-weight: 500;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.contact-form-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 30px;
+}
+.info-block {
+    text-align: center;
+}
+.contact-icon {
+    font-size: 2rem;
+    color: var(--primary-medium);
+    margin-bottom: 15px;
+}
+
+.info-block h3 {
+    font-size: 1.3rem;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+}
+
+.info-block p {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+    .contact-section .block-link {
+        text-decoration: none;
     }
-    .section-title {
-        text-align: center;
-        font-size: 2.5rem;
-        margin-bottom: 50px;
-        font-weight: 500;
-        color: var(--primary-dark);
+    .contact-section a {
+        text-decoration: none;
     }
-    .contact-container {
-        display: flex;
-        max-width: 1100px;
-        margin: 0 auto;
-        gap: 40px;
-    }
-    .contact-info {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
+/* Responsive Design */
+media (max-width: 992px) {
+    .contact-info-grid {
+        grid-template-columns: 1fr;
         gap: 20px;
     }
-    .contact-section .section-title {
-        color: var(--text-light);
-    }
-    .contact-section .container {
-        position: relative;
-        z-index: 2;
-    }
-    .contact-card {
-        background-color: rgba(255, 255, 255, 0.95);
-        transition: transform 0.3s, box-shadow 0.3s;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        padding: 25px;
-        transition: transform 0.3s;
-    }
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-    .contact-icon {
-        font-size: 2rem;
-        color: var(--primary-medium);
-        margin-bottom: 15px;
-    }
-    .contact-card h3 {
-        font-size: 1.3rem;
-        color: var(--primary-dark);
-    }
-    .contact-card p {
-        font-size: 1rem;
-        color: var(--text-dark);
-        margin-bottom: 5px;
-    }
+
     .contact-form-container {
-        flex: 1.5;
-        background-color: white;
-        border-radius: 10px;
         padding: 30px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-        background-color: rgba(255, 255, 255, 0.95);
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
     }
-    .contact-form .form-group {
-        margin-bottom: 20px;
+}
+
+media (max-width: 768px) {
+    .section-title {
+        font-size: 2rem;
     }
-    .contact-form input,
-    .contact-form select,
-    .contact-form textarea {
-        width: 100%;
-        padding: 12px 15px;
-        border: 1px solid #e0e0e0;
-        border-radius: 5px;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1rem;
-        transition: border-color 0.3s;
+
+    .contact-form-container {
+        padding: 25px;
     }
-    .contact-form input:focus,
-    .contact-form select:focus,
-    .contact-form textarea:focus {
-        border-color: var(--primary-medium);
-        outline: none;
-    }
-    .submit-btn {
-        padding: 14px 25px;
-        background-color: var(--primary-medium);
-        color: var(--text-light);
-        border: none;
-        border-radius: 5px;
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        width: 100%;
-    }
-    .submit-btn:hover {
-        background-color: var(--primary-dark);
-    }
+}
     /*FOOTER SECTION*/
         .footer-section {
         background-color: var(--primary-dark);
@@ -781,12 +675,6 @@ media (max-width: 768px) {
         align-items: center;
         justify-content: center;
         color: var(--text-light);
-        transition: all 0.3s ease;
-    }
-    .social-icon:hover {
-        background-color: var(--accent);
-        color: var(--primary-dark);
-        transform: translateY(-3px);
     }
     .footer-links, .footer-services {
         flex: 1;
@@ -824,12 +712,7 @@ media (max-width: 768px) {
     .footer-list a {
         color: rgba(255, 255, 255, 0.8);
         text-decoration: none;
-        transition: color 0.3s ease, transform 0.3s ease;
         display: inline-block;
-    }
-    .footer-list a:hover {
-        color: var(--accent);
-        transform: translateX(5px);
     }
     .newsletter-form {
         display: flex;
@@ -868,37 +751,13 @@ media (max-width: 768px) {
         justify-content: space-between;
         align-items: center;
     }
-    .copyright {
-        font-size: 0.9rem;
-        color: rgba(255, 255, 255, 0.7);
-    }
     .copyright a {
         color: rgba(255, 255, 255, 0.8);
         text-decoration: none;
         transition: color 0.3s ease;
     }
-    .copyright a:hover {
-        color: var(--accent);
-    }
-    .back-to-top {
-        background-color: var(--accent);
-        width: 40px;
-        height: 40px;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: background-color 0.3s ease;
-    }
-    .back-to-top a {
-        color: var(--primary-dark);
-    }
-    .back-to-top:hover {
-        background-color: var(--accent-hover);
-    }
-
 </style>
-<nav class="navbar navbar-expand-lg navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark" id="top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#" style="margin-left:150px; font-size:25px">Land Surveyor</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -932,7 +791,7 @@ media (max-width: 768px) {
         </div>
     </div>
 </nav>
-<div id="top" class="parallax-hero">
+<div id="" class="parallax-hero">
     <div class="hero-content">
         <h1>Precision Land Surveying</h1>
         <p>Expert surveying solutions for construction, development, and infrastructure projects</p>
@@ -946,8 +805,8 @@ media (max-width: 768px) {
 <!-- About Section -->
 <section id="about" class="content-section about-section">
     <div style="width: 70%; margin: 0 auto; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; ">
-        <h1 style="font-weight:500; font-size:50px;">About us</h1>
-        <div style="font-size:24px; word-spacing:4px;">
+        <h1 style="font-weight:800; font-size:50px;">About us</h1>
+        <div style="font-size:30px; word-spacing:4px;">
             <p>
                 At <b>IRAYAWEB Inc.</b>, we are a team of skilled geodetic engineers, spatial analysts,
                 and field surveyors committed to delivering precise, efficient, and reliable land
@@ -963,55 +822,163 @@ media (max-width: 768px) {
     </div>
 </section>
 <!-- Services Section -->
-<section id="services" class="parallax-section services-section">
-    <div class="container">
-        <h2>Our Services</h2>
-        <div class="services-container">
-            <div class="service-item">
-                <img src="@Url.Content("~/Content/Images/BoundaryLot.png")" alt="Boundary & Lot Surveys">
-                <div class="service-title">Boundary & Lot Surveys</div>
-                <div class="service-description">
-                    <ul>
-                        <li>Boundary Verification Survey</li>
-                        <li>Relocation & Subdivision Survey</li>
-                        <li>Land Title & Legal Documentation</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="@Url.Content("~/Content/Images/EngineerConstruct.jpg")" alt="Engineering & Construction Surveys">
-                <div class="service-title">Engineering & Construction Surveys</div>
-                <div class="service-description">
-                    <ul>
-                        <li>Topographic Mapping</li>
-                        <li>As-Built & Structural Layout</li>
-                        <li>Construction Staking & Road Surveys</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="@Url.Content("~/Content/Images/VerticalHeight.jpg")" alt="Vertical & Height Surveys">
-                <div class="service-title">Vertical & Height Surveys</div>
-                <div class="service-description">
-                    <ul>
-                        <li>Leveling & Elevation Surveys</li>
-                        <li>Verticality & Structural Monitoring</li>
-                        <li>Aeronautical & Height Clearance (CAAP)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="service-item">
-                <img src="@Url.Content("~/Content/Images/Specialized.jpg")" alt="Specialized Surveys">
-                <div class="service-title">Specialized Surveys</div>
-                <div class="service-description">
-                    <ul>
-                        <li>Hydrographic & Flood Control Surveys</li>
-                        <li>Mining & Geodetic Surveys</li>
-                        <li>Environmental & Land Use Planning</li>
-                    </ul>
-                </div>
-            </div>  
+<section id="services" class="content-section">
+    <h2 class="section-title text-center py-4" style="background-color: var(--background-light); margin: 0; color: var(--primary-dark);">Our Services</h2>
+
+    <div id="servicesCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="7000">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#servicesCarousel" data-bs-slide-to="3"></button>
         </div>
+
+        <div class="carousel-inner">
+            <!-- Boundary & Lot Surveys -->
+            <div class="carousel-item active">
+                <div class="parallax-section services-slide" style="background-image: url('@Url.Content("~/Content/Images/BoundaryLot.png")');">
+                    <div class="services-overlay">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <h3 class="service-title">Boundary & Lot Surveys</h3>
+                                </div>
+                                <div class="col-md-8">
+                                    <ul class="service-list">
+                                        <li>
+                                            <h4>Boundary Verification Survey</h4>
+                                            <p>Accurately determine and mark property boundaries based on historical records and physical features</p>
+                                        </li>
+                                        <li>
+                                            <h4>Relocation & Subdivision Survey</h4>
+                                            <p>Create legally compliant subdivisions and relocate property boundaries with precision</p>
+                                        </li>
+                                        <li>
+                                            <h4>Land Title & Legal Documentation</h4>
+                                            <p>Prepare all necessary documentation for legal property transactions and registry</p>
+                                        </li>
+                                    </ul>
+                                    <div class="text-center mt-4">
+                                        <a href="#" class="service-btn">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Engineering & Construction Surveys -->
+            <div class="carousel-item">
+                <div class="parallax-section services-slide" style="background-image: url('@Url.Content("~/Content/Images/EngineerConstruct.jpg")');">
+                    <div class="services-overlay">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <h3 class="service-title">Engineering & Construction Surveys</h3>
+                                </div>
+                                <div class="col-md-8">
+                                    <ul class="service-list">
+                                        <li>
+                                            <h4>Topographic Mapping</h4>
+                                            <p>Create detailed maps showing natural and man-made features for project planning</p>
+                                        </li>
+                                        <li>
+                                            <h4>As-Built & Structural Layout</h4>
+                                            <p>Accurate documentation of completed construction with precise measurements</p>
+                                        </li>
+                                        <li>
+                                            <h4>Construction Staking & Road Surveys</h4>
+                                            <p>Guide construction teams with accurate placement markers for infrastructure projects</p>
+                                        </li>
+                                    </ul>
+                                    <div class="text-center mt-4">
+                                        <a href="#" class="service-btn">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vertical & Height Surveys -->
+            <div class="carousel-item">
+                <div class="parallax-section services-slide" style="background-image: url('@Url.Content("~/Content/Images/VerticalHeight.jpg")');">
+                    <div class="services-overlay">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <h3 class="service-title">Vertical & Height Surveys</h3>
+                                </div>
+                                <div class="col-md-8">
+                                    <ul class="service-list">
+                                        <li>
+                                            <h4>Leveling & Elevation Surveys</h4>
+                                            <p>Establish accurate height references for construction and development projects</p>
+                                        </li>
+                                        <li>
+                                            <h4>Verticality & Structural Monitoring</h4>
+                                            <p>Assess and track structural alignment and settlement over time</p>
+                                        </li>
+                                        <li>
+                                            <h4>Aeronautical & Height Clearance (CAAP)</h4>
+                                            <p>Ensure compliance with aviation safety regulations for structures near airports</p>
+                                        </li>
+                                    </ul>
+                                    <div class="text-center mt-4">
+                                        <a href="#" class="service-btn">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Specialized Surveys -->
+            <div class="carousel-item">
+                <div class="parallax-section services-slide" style="background-image: url('@Url.Content("~/Content/Images/Specialized.jpg")');">
+                    <div class="services-overlay">
+                        <div class="container">
+                            <div class="row align-items-center">
+                                <div class="col-md-4">
+                                    <h3 class="service-title">Specialized Surveys</h3>
+                                </div>
+                                <div class="col-md-8">
+                                    <ul class="service-list">
+                                        <li>
+                                            <h4>Hydrographic & Flood Control Surveys</h4>
+                                            <p>Map underwater terrain and develop flood mitigation strategies</p>
+                                        </li>
+                                        <li>
+                                            <h4>Mining & Geodetic Surveys</h4>
+                                            <p>Specialized measurements for mining operations and large-scale geographic projects</p>
+                                        </li>
+                                        <li>
+                                            <h4>Environmental & Land Use Planning</h4>
+                                            <p>Support sustainable development with comprehensive environmental assessments</p>
+                                        </li>
+                                    </ul>
+                                    <div class="text-center mt-4">
+                                        <a href="#" class="service-btn">Learn more</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#servicesCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#servicesCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
 </section>
 <!-- Projects Section -->
@@ -1033,60 +1000,105 @@ media (max-width: 768px) {
     </div>
     <button class="view-all-btn">View All Projects</button>
 </section>
-<!-- Location Section -->
+<!-- Locations Section -->
 <section id="locations" class="parallax-section locations-section">
-    <div class="location-container">
-        <h2 style="margin-bottom:50px;">We serve clients in the following locations:</h2>
-        <div class="locations-grid">
-            <div class="location-card">
-                <h3 class="location-title">Manila Office</h3>
-                <div class="location-divider"></div>
-                <p class="location-address">
-                    98-B Mindanao Avenue, Brgy Tandang Sora,<br>
-                    Quezon City, Metro Manila
-                </p>
-                <a href="#" class="location-contact">Contact this office</a>
+    <div class="container">
+        <h2 class="section-title">Our Locations</h2>
+        <p class="section-description">Serving clients across the Philippines with offices strategically located to provide efficient and timely surveying services.</p>
+
+        <div id="locationCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#locationCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Manila"></button>
+                <button type="button" data-bs-target="#locationCarousel" data-bs-slide-to="1" aria-label="Cebu"></button>
+                <button type="button" data-bs-target="#locationCarousel" data-bs-slide-to="2" aria-label="Davao"></button>
             </div>
-            <div class="location-card">
-                <h3 class="location-title">Laguna Office</h3>
-                <div class="location-divider"></div>
-                <p class="location-address">
-                    3F San Lorenzo Building, United San Pedro City,<br>
-                    Laguna
-                </p>
-                <a href="#" class="location-contact">Contact this office</a>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="card bg-dark text-white">
+                        <img src="@Url.Content("~/Content/Images/Manila.jpg")" class="card-img" alt="Manila Office">
+                        <div class="card-img-overlay">
+                            <h3 class="card-title">Manila</h3>
+                            <div class="location-info">
+                                <p class="card-text">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    123 Ayala Avenue, Makati City, Metro Manila
+                                </p>
+                                <p class="card-text">
+                                    <i class="fas fa-phone-alt"></i>
+                                    (02) 8-123-4567
+                                </p>
+                                <p class="card-text">
+                                    <i class="fas fa-envelope"></i>
+                                    manila@irayaweb.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="card bg-dark text-white">
+                        <img src="@Url.Content("~/Content/Images/Cebu.jpg")" class="card-img" alt="Cebu Office">
+                        <div class="card-img-overlay">
+                            <h3 class="card-title">Cebu</h3>
+                            <div class="location-info">
+                                <p class="card-text">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    456 IT Park, Cebu Business Park, Cebu City
+                                </p>
+                                <p class="card-text">
+                                    <i class="fas fa-phone-alt"></i>
+                                    (032) 234-5678
+                                </p>
+                                <p class="card-text">
+                                    <i class="fas fa-envelope"></i>
+                                    cebu@irayaweb.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="card bg-dark text-white">
+                        <img src="@Url.Content("~/Content/Images/Davao.jpg")" class="card-img" alt="Davao Office">
+                        <div class="card-img-overlay">
+                            <h3 class="card-title">Davao</h3>
+                            <div class="location-info">
+                                <p class="card-text">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    789 JP Laurel Ave, Davao City
+                                </p>
+                                <p class="card-text">
+                                    <i class="fas fa-phone-alt"></i>
+                                    (082) 345-6789
+                                </p>
+                                <p class="card-text">
+                                    <i class="fas fa-envelope"></i>
+                                    davao@irayaweb.com
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="location-card">
-                <h3 class="location-title">Cebu Office</h3>
-                <div class="location-divider"></div>
-                <p class="location-address">
-                    Unit B, Robles Building, A. C. Cortez Avenue,<br>
-                    Mandaue City, Cebu
-                </p>
-                <a href="#" class="location-contact">Contact this office</a>
-            </div>
-            <div class="location-card">
-                <h3 class="location-title">Davao Office</h3>
-                <div class="location-divider"></div>
-                <p class="location-address">
-                    Unit 3, Platos Building, Diversion Road, Brgy<br>
-                    Tigatto, Davao City
-                </p>
-                <a href="#" class="location-contact">Contact this office</a>
-            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#locationCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#locationCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <div class="map-container">
-            <div class="map-overlay">
-                <p>Find your nearest IRAYAWEB surveying office</p>
-                <button class="view-map-btn">View Full Map</button>
-            </div>
         </div>
-    </div>
 </section>
 <!-- Clients Section -->
 <section id="clients" class="content-section clients-section">
     <div class="container">
-        <h2 class="section-title">Our Trusted Clients</h2>
+        <h2 class="section-title" style="color: #2c5f8e;">Our Trusted Clients</h2>
         <div class="clients-description">
             <p>We're proud to have partnered with leading organizations across various industries, providing precise surveying solutions for their projects.</p>
         </div>
@@ -1095,22 +1107,26 @@ media (max-width: 768px) {
                 <h3 class="category-title">Real Estate & Development</h3>
                 <div class="category-clients">
                     <div class="client-item">
-                        <div class="client-logo">
-                            <img src="@Url.Content("~/Content/Images/SMPrime.jpg")" alt="SM Prime">
-                        </div>
-                        <div class="client-details">
-                            <h4>SM Prime Holdings</h4>
-                            <p>Property boundary surveys for mall developments across the Philippines</p>
-                        </div>
+                        <a>
+                            <div class="client-logo">
+                                <img src="@Url.Content("~/Content/Images/SMPrime.jpg")" alt="SM Prime">
+                            </div>
+                            <div class="client-details">
+                                <h4>SM Prime Holdings</h4>
+                                <p>Property boundary surveys for mall developments across the Philippines</p>
+                            </div>
+                        </a>
                     </div>
                     <div class="client-item">
-                        <div class="client-logo">
-                            <img src="@Url.Content("~/Content/Images/MegaWorld.png")" alt="Megaworld">
-                        </div>
-                        <div class="client-details">
-                            <h4>Megaworld Corporation</h4>
-                            <p>Topographic and construction surveys for township projects</p>
-                        </div>
+                        <a>
+                            <div class="client-logo">
+                                <img src="@Url.Content("~/Content/Images/MegaWorld.png")" alt="Megaworld">
+                            </div>
+                            <div class="client-details">
+                                <h4>Megaworld Corporation</h4>
+                                <p>Topographic and construction surveys for township projects</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1118,63 +1134,28 @@ media (max-width: 768px) {
                 <h3 class="category-title">Infrastructure & Utilities</h3>
                 <div class="category-clients">
                     <div class="client-item">
-                        <div class="client-logo">
-                            <img src="@Url.Content("~/Content/Images/Meralco.png")" alt="Meralco">
-                        </div>
-                        <div class="client-details">
-                            <h4>Meralco</h4>
-                            <p>Transmission line surveys and utility mapping projects</p>
-                        </div>
+                        <a>
+                            <div class="client-logo">
+                                <img src="@Url.Content("~/Content/Images/Meralco.png")" alt="Meralco">
+                            </div>
+                            <div class="client-details">
+                                <h4>Meralco</h4>
+                                <p>Transmission line surveys and utility mapping projects</p>
+                            </div>
+                        </a>
                     </div>
                     <div class="client-item">
-                        <div class="client-logo">
-                            <img src="@Url.Content("~/Content/Images/Smart.png")" alt="Smart Communications">
-                        </div>
-                        <div class="client-details">
-                            <h4>Smart Communications</h4>
-                            <p>Cell tower location and height verification surveys</p>
-                        </div>
+                        <a>
+                            <div class="client-logo">
+                                <img src="@Url.Content("~/Content/Images/Smart.png")" alt="Smart Communications">
+                            </div>
+                            <div class="client-details">
+                                <h4>Smart Communications</h4>
+                                <p>Cell tower location and height verification surveys</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="testimonials-container">
-            <h3 class="testimonials-title">What Our Clients Say</h3>
-            <div class="testimonial-carousel">
-                <div class="testimonial-item active">
-                    <div class="testimonial-quote">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p>IRAYAWEB's surveying team delivered precise boundary surveys for our mall expansion project, providing crucial data that helped us optimize our development plans.</p>
-                        <div class="testimonial-author">
-                            <p><strong>Project Manager</strong> - SM Prime Holdings</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-quote">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p>Their specialized team completed our cell tower height verification surveys with exceptional precision, meeting our strict compliance requirements for CAAP regulations.</p>
-                        <div class="testimonial-author">
-                            <p><strong>Infrastructure Director</strong> - Smart Communications</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item">
-                    <div class="testimonial-quote">
-                        <i class="fas fa-quote-left quote-icon"></i>
-                        <p>We rely on IRAYAWEB for our nationwide property surveys. Their consistent accuracy and detailed reporting have made them our trusted surveying partner.</p>
-                        <div class="testimonial-author">
-                            <p><strong>Technical Project Manager</strong> - Meralco</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-controls">
-                <span class="carousel-control prev"><i class="fas fa-chevron-left"></i></span>
-                <span class="carousel-indicator active" data-slide="0"></span>
-                <span class="carousel-indicator" data-slide="1"></span>
-                <span class="carousel-indicator" data-slide="2"></span>
-                <span class="carousel-control next"><i class="fas fa-chevron-right"></i></span>
             </div>
         </div>
     </div>
@@ -1184,54 +1165,37 @@ media (max-width: 768px) {
     <div class="container">
         <h2 class="section-title">Contact Us</h2>
         <div class="contact-container">
-            <div class="contact-info">
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <h3>Email Us</h3>
-                    <p>info@irayaweb.com</p>
-                    <p>support@irayaweb.com</p>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <h3>Call Us</h3>
-                    <p>(02) 8-123-4567</p>
-                    <p>+63 917 123 4567</p>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>Office Hours</h3>
-                    <p>Monday-Friday: 8AM - 5PM</p>
-                    <p>Saturday: 8AM - 12PM</p>
-                </div>
-            </div>
             <div class="contact-form-container">
-                <form class="contact-form">
-                    <div class="form-group">
-                        <input type="text" placeholder="Your Name" required>
+                <div class="contact-info-grid">
+                    <div class="info-block">
+                        <a href="mailto:info@irayaweb.com" class="block-link">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <h3>Email Us</h3>
+                            <p>info@irayaweb.com</p>
+                            <p>support@irayaweb.com</p>
+                        </a>
                     </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Your Email" required>
+                    <div class="info-block">
+                        <a href="tel:+6328123456" class="block-link">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <h3>Call Us</h3>
+                            <p>(02) 8-123-4567</p>
+                            <p>+63 917 123 4567</p>
+                        </a>
                     </div>
-                    <div class="form-group">
-                        <select>
-                            <option value="" disabled selected>Select Service</option>
-                            <option value="boundary">Boundary & Lot Surveys</option>
-                            <option value="engineering">Engineering & Construction Surveys</option>
-                            <option value="vertical">Vertical & Height Surveys</option>
-                            <option value="specialized">Specialized Surveys</option>
-                        </select>
+                    <div class="info-block">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>Office Hours</h3>
+                        <p>Monday-Friday: 8AM - 5PM</p>
+                        <p>Saturday: 8AM - 12PM</p>
                     </div>
-                    <div class="form-group">
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -1247,14 +1211,14 @@ media (max-width: 768px) {
                         Providing expert land surveying solutions across the Philippines with precision, reliability, and professionalism.
                     </p>
                     <div class="footer-social">
-                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.Facebook.com" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.Twitter.com" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.LinkedIn.com" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.Instagram.com" class="social-icon"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-links">
-                    <h3 class="footer-title">Quick Links</h3>
+                    <h3 class="footer-title">Explore More</h3>
                     <ul class="footer-list">
                         <li><a href="#top">Home</a></li>
                         <li><a href="#about">About Us</a></li>
@@ -1281,7 +1245,7 @@ media (max-width: 768px) {
                     <p>Subscribe to our newsletter for the latest updates and special offers.</p>
                     <form class="newsletter-form">
                         <input type="email" placeholder="Your Email Address" required>
-                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                        <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"> </i></button>
                     </form>
                 </div>
             </div>
@@ -1291,11 +1255,6 @@ media (max-width: 768px) {
         <div class="container">
             <div class="copyright">
                 <p>&copy; 2025 IRAYAWEB Inc. All Rights Reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-            </div>
-            <div class="back-to-top">
-                <a href="#top" id="scroll-top">
-                    <i class="fas fa-chevron-up"></i>
-                </a>
             </div>
         </div>
     </div>
@@ -1329,72 +1288,6 @@ media (max-width: 768px) {
                 rect.bottom >= 0
             );
         }
-    });
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const testimonials = document.querySelectorAll('.testimonial-item');
-        const indicators = document.querySelectorAll('.carousel-indicator');
-        const prevBtn = document.querySelector('.carousel-control.prev');
-        const nextBtn = document.querySelector('.carousel-control.next');
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            testimonials.forEach(item => {
-                item.classList.remove('active');
-            });
-
-            indicators.forEach(indicator => {
-                indicator.classList.remove('active');
-            });
-
-            testimonials[index].classList.add('active');
-            indicators[index].classList.add('active');
-            currentSlide = index;
-        }
-
-        indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', function () {
-                showSlide(index);
-            });
-        });
-
-        prevBtn.addEventListener('click', function () {
-            currentSlide = (currentSlide - 1 + testimonials.length) % testimonials.length;
-            showSlide(currentSlide);
-        });
-
-        nextBtn.addEventListener('click', function () {
-            currentSlide = (currentSlide + 1) % testimonials.length;
-            showSlide(currentSlide);
-        });
-
-        setInterval(function () {
-            currentSlide = (currentSlide + 1) % testimonials.length;
-            showSlide(currentSlide);
-        }, 5000);
-    });
-
-    document.getElementById('scroll-top').addEventListener('click', function (e) {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
     });
 </script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">

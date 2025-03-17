@@ -133,9 +133,12 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\BoundaryLot.png" />
+    <Content Include="Content\Images\Cebu.jpg" />
     <Content Include="Content\Images\cover.jpg" />
     <Content Include="Content\Images\DarkenService.jpg" />
+    <Content Include="Content\Images\Davao.jpg" />
     <Content Include="Content\Images\EngineerConstruct.jpg" />
+    <Content Include="Content\Images\Manila.jpg" />
     <Content Include="Content\Images\MegaWorld.png" />
     <Content Include="Content\Images\Meralco.png" />
     <Content Include="Content\Images\project1.jpg" />
